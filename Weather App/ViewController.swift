@@ -8,10 +8,19 @@
 import UIKit
 
 class ViewController: UIViewController {
-    private lazy var customView: UIView = {
+    private lazy var backgroundView: UIImageView = {
+        let ImageView = UIImageView(frame: .zero)
+        ImageView.image = UIImage(named: "background")
+        ImageView.contentMode = .scaleAspectFill
+        ImageView.translatesAutoresizingMaskIntoConstraints = false
+        return ImageView
+    }()
+    
+    private lazy var headerView: UIView = {
         let view = UIView(frame: .zero)
-        view.backgroundColor = UIColor.black
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .white
+        view.layer.cornerRadius = 20
         return view
     }()
     
@@ -40,21 +49,28 @@ class ViewController: UIViewController {
     private func setupView () {
         view.backgroundColor = .red
         
-        
         setHierarchy()
         setConstraints()
     }
     
     private func setHierarchy() {
-        view.addSubview(customView)
+        view.addSubview(backgroundView)
+        view.addSubview(headerView)
     }
     
     private func setConstraints() {
         NSLayoutConstraint.activate([
-            customView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 100),
-            customView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 50),
-            customView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -50),
-            customView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -100)
+            backgroundView.topAnchor.constraint(equalTo: view.topAnchor),
+            backgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            backgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            backgroundView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 60),
+            headerView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 35),
+            headerView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -35),
+            headerView.heightAnchor.constraint(equalToConstant: 169)
         ])
     }
     
