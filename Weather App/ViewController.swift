@@ -151,7 +151,7 @@ class ViewController: UIViewController {
     private lazy var dailyForecastTableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.backgroundColor = .red
+        tableView.backgroundColor = .clear
         tableView.dataSource = self
         tableView.register(DailyForecastTableViewCell.self, forCellReuseIdentifier: DailyForecastTableViewCell.identifier)
         return tableView
@@ -237,7 +237,7 @@ class ViewController: UIViewController {
             dailyForecastLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 35),
             dailyForecastLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -35),
             
-            dailyForecastTableView.topAnchor.constraint(equalTo: dailyForecastLabel.bottomAnchor, constant: 30),
+            dailyForecastTableView.topAnchor.constraint(equalTo: dailyForecastLabel.bottomAnchor, constant: 16),
             dailyForecastTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             dailyForecastTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             dailyForecastTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
