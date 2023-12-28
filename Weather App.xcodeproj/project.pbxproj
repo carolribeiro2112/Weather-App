@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD197DDC2B3D987A00E90708 /* DailyForecastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD197DDB2B3D987A00E90708 /* DailyForecastTableViewCell.swift */; };
 		DD241EF12B337FF3001D2C17 /* HourlyForecastCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD241EF02B337FF3001D2C17 /* HourlyForecastCollectionViewCell.swift */; };
 		DD241EF32B338AAE001D2C17 /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD241EF22B338AAE001D2C17 /* Color+Extensions.swift */; };
 		DD77B6F02B2E52C0002CFEAC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD77B6EF2B2E52C0002CFEAC /* AppDelegate.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DD197DDB2B3D987A00E90708 /* DailyForecastTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyForecastTableViewCell.swift; sourceTree = "<group>"; };
 		DD241EF02B337FF3001D2C17 /* HourlyForecastCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyForecastCollectionViewCell.swift; sourceTree = "<group>"; };
 		DD241EF22B338AAE001D2C17 /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
 		DD77B6EC2B2E52C0002CFEAC /* Weather App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Weather App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,6 +63,7 @@
 				DD77B6EF2B2E52C0002CFEAC /* AppDelegate.swift */,
 				DD77B6F12B2E52C0002CFEAC /* SceneDelegate.swift */,
 				DD77B6F32B2E52C0002CFEAC /* ViewController.swift */,
+				DD197DDB2B3D987A00E90708 /* DailyForecastTableViewCell.swift */,
 				DD241EF02B337FF3001D2C17 /* HourlyForecastCollectionViewCell.swift */,
 				DD241EF22B338AAE001D2C17 /* Color+Extensions.swift */,
 				DD77B6F82B2E52C2002CFEAC /* Assets.xcassets */,
@@ -142,6 +145,7 @@
 			files = (
 				DD241EF32B338AAE001D2C17 /* Color+Extensions.swift in Sources */,
 				DD77B6F42B2E52C0002CFEAC /* ViewController.swift in Sources */,
+				DD197DDC2B3D987A00E90708 /* DailyForecastTableViewCell.swift in Sources */,
 				DD77B6F02B2E52C0002CFEAC /* AppDelegate.swift in Sources */,
 				DD241EF12B337FF3001D2C17 /* HourlyForecastCollectionViewCell.swift in Sources */,
 				DD77B6F22B2E52C0002CFEAC /* SceneDelegate.swift in Sources */,
