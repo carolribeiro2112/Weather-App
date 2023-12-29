@@ -16,8 +16,6 @@ class DailyForecastTableViewCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = UIColor.white
         label.font = UIFont.systemFont(ofSize: 12, weight: .semibold)
-        label.textAlignment = .center
-        label.text = "TER"
         return label
     }()
     
@@ -26,8 +24,6 @@ class DailyForecastTableViewCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = UIColor.white
         label.font = UIFont.systemFont(ofSize: 12, weight: .semibold)
-        label.textAlignment = .center
-        label.text = "min 25°C"
         return label
     }()
     
@@ -36,15 +32,12 @@ class DailyForecastTableViewCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = UIColor.white
         label.font = UIFont.systemFont(ofSize: 12, weight: .semibold)
-        label.textAlignment = .center
-        label.text = "max 25°C"
         return label
     }()
     
     private lazy var iconImageView: UIImageView = {
         let ImageView = UIImageView()
         ImageView.translatesAutoresizingMaskIntoConstraints = false
-        ImageView.image = UIImage(named: "rainIcon")
         ImageView.contentMode = .scaleAspectFit
         return ImageView
     }()
@@ -68,6 +61,14 @@ class DailyForecastTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func loadData(weekDay: String?, icon: UIImage?, min: String?, max: String?) {
+        weekDayLabel.text = weekDay
+        iconImageView.image = icon
+        minTemperatureLabel.text = "min \(min ?? "")"
+        maxTemperatureLabel.text = "max \(max ?? "")"
+       
+    }
+    
     private func setupView() {
         backgroundColor = .clear
         selectionStyle = .none
@@ -78,14 +79,14 @@ class DailyForecastTableViewCell: UITableViewCell {
     
     private func setHierarchy() {
         contentView.addSubview(stackView)
+        
     }
     
     private func setConstraints() {
         stackView.setConstraintsToParent(contentView)
-        
         NSLayoutConstraint.activate([
-            iconImageView.heightAnchor.constraint(equalToConstant: 33),
-            weekDayLabel.widthAnchor.constraint(lessThanOrEqualToConstant: 50)
+            weekDayLabel.widthAnchor.constraint(lessThanOrEqualToConstant: 50),
+            iconImageView.heightAnchor.constraint(equalToConstant: 30)
         ])
     }
 
