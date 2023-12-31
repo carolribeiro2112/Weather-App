@@ -11,7 +11,6 @@ class ViewController: UIViewController {
     
     private lazy var backgroundView: UIImageView = {
         let ImageView = UIImageView(frame: .zero)
-        ImageView.image = UIImage(named: "background")
         ImageView.contentMode = .scaleAspectFill
         ImageView.translatesAutoresizingMaskIntoConstraints = false
         return ImageView
@@ -169,9 +168,7 @@ class ViewController: UIViewController {
             DispatchQueue.main.async {
                 self?.loadData()
             }
-            
         }
-
     }
     
     private func loadData() {
@@ -180,14 +177,20 @@ class ViewController: UIViewController {
         temperatureLabel.text = forecastResponse?.current.temp.toCelsius()
         humidityValueLabel.text = "\(forecastResponse?.current.humidity ?? 0) mm"
         windValueLabel.text = "\(forecastResponse?.current.windSpeed ?? 0) km/h"
+        weatherIcon.image = UIImage(named: forecastResponse?.current.weather.first?.icon ?? "")
+        
+        if (forecastResponse?.current.dt.isDayTime() ?? true) {
+            backgroundView.image = UIImage(named: "background-day")
+        } else {
+            backgroundView.image = UIImage(named: "background-night")
+        }
 
         hourlyCollectionView.reloadData()
         dailyForecastTableView.reloadData()
     }
     
     private func setupView () {
-        view.backgroundColor = .red
-        
+        view.backgroundColor = .white
         setHierarchy()
         setConstraints()
     }
@@ -280,7 +283,9 @@ extension ViewController: UICollectionViewDataSource {
         }
         
         let forecast = forecastResponse?.hourly[indexPath.row]
-        cell.loadData(time: forecast?.dt.toHourFormat() , icon: UIImage(named: "sunIcon"), temp: forecast?.temp.toCelsius())
+        cell.loadData(time: forecast?.dt.toHourFormat() ,
+                      icon: UIImage(named: forecast?.weather.first?.icon ?? ""),
+                      temp: forecast?.temp.toCelsius())
         
         return cell
     }
@@ -288,21 +293,21 @@ extension ViewController: UICollectionViewDataSource {
 
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return forecastResponse?.daily.count ?? 0
+        forecastResponse?.daily.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: DailyForecastTableViewCell.identifier,
+                                                       for: indexPath) as? DailyForecastTableViewCell else {
+            return UITableViewCell()
         }
         
-        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: DailyForecastTableViewCell.identifier,
-                                                           for: indexPath) as? DailyForecastTableViewCell else {
-                return UITableViewCell()
-            }
-            
-            let forecast = forecastResponse?.daily[indexPath.row]
-            cell.loadData(weekDay: forecast?.dt.toWeekdayName().uppercased(),
-                          icon: UIImage(named: "sunIcon"),
-                          min: forecast?.temp.min.toCelsius(),
-                          max: forecast?.temp.max.toCelsius())
-            
-            return cell
-        }
+        let forecast = forecastResponse?.daily[indexPath.row]
+        cell.loadData(weekDay: forecast?.dt.toWeekdayName().uppercased(),
+                      min: forecast?.temp.min.toCelsius(),
+                      max: forecast?.temp.max.toCelsius(),
+                      icon: UIImage(named: forecast?.weather.first?.icon ?? ""))
+        
+        return cell
+    }
 }

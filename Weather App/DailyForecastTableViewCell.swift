@@ -61,12 +61,11 @@ class DailyForecastTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func loadData(weekDay: String?, icon: UIImage?, min: String?, max: String?) {
+    func loadData(weekDay: String?, min: String?, max: String?, icon: UIImage?) {
         weekDayLabel.text = weekDay
-        iconImageView.image = icon
         minTemperatureLabel.text = "min \(min ?? "")"
         maxTemperatureLabel.text = "max \(max ?? "")"
-       
+        iconImageView.image = icon
     }
     
     private func setupView() {
@@ -79,16 +78,14 @@ class DailyForecastTableViewCell: UITableViewCell {
     
     private func setHierarchy() {
         contentView.addSubview(stackView)
-        
     }
     
     private func setConstraints() {
         stackView.setConstraintsToParent(contentView)
         NSLayoutConstraint.activate([
             weekDayLabel.widthAnchor.constraint(lessThanOrEqualToConstant: 50),
-            iconImageView.heightAnchor.constraint(equalToConstant: 30)
+            iconImageView.heightAnchor.constraint(equalToConstant: 33)
         ])
     }
-
 }
 
