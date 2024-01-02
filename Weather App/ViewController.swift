@@ -19,7 +19,9 @@ class ViewController: UIViewController {
     private lazy var headerView: UIView = {
         let view = UIView(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .white
+        view.backgroundColor = .clear
+        view.layer.borderWidth = 1
+        view.layer.borderColor = UIColor.lightBlue.cgColor
         view.layer.cornerRadius = 20
         return view
     }()
@@ -29,7 +31,7 @@ class ViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 20)
         label.textAlignment = .center
-        label.textColor = UIColor.primaryColor
+        label.textColor = UIColor.lightBlue
         return label
     }()
     
@@ -38,14 +40,13 @@ class ViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 70, weight: .bold)
         label.textAlignment = .left
-        label.textColor = UIColor.primaryColor
+        label.textColor = UIColor.lightBlue
         return label
     }()
     
     private lazy var weatherIcon: UIImageView = {
         let ImageView = UIImageView()
         ImageView.translatesAutoresizingMaskIntoConstraints = false
-        ImageView.image = UIImage(named: "sunIcon")
         ImageView.contentMode = .scaleAspectFit
         return ImageView
     }()
@@ -148,7 +149,9 @@ class ViewController: UIViewController {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.backgroundColor = .clear
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.register(DailyForecastTableViewCell.self, forCellReuseIdentifier: DailyForecastTableViewCell.identifier)
+        tableView.separatorColor = UIColor.white
         return tableView
     }()
     
@@ -291,7 +294,7 @@ extension ViewController: UICollectionViewDataSource {
     }
 }
 
-extension ViewController: UITableViewDataSource {
+extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         forecastResponse?.daily.count ?? 0
     }
@@ -309,5 +312,9 @@ extension ViewController: UITableViewDataSource {
                       icon: UIImage(named: forecast?.weather.first?.icon ?? ""))
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        60
     }
 }
