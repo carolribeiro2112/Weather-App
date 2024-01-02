@@ -21,7 +21,7 @@ class ViewController: UIViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .clear
         view.layer.borderWidth = 1
-        view.layer.borderColor = UIColor.lightBlue.cgColor
+        view.layer.borderColor = UIColor.white.cgColor
         view.layer.cornerRadius = 20
         return view
     }()
@@ -31,7 +31,7 @@ class ViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 20)
         label.textAlignment = .center
-        label.textColor = UIColor.lightBlue
+        label.textColor = UIColor.white
         return label
     }()
     
@@ -40,7 +40,7 @@ class ViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 70, weight: .bold)
         label.textAlignment = .left
-        label.textColor = UIColor.lightBlue
+        label.textColor = UIColor.white
         return label
     }()
     
