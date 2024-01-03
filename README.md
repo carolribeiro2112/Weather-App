@@ -1,6 +1,9 @@
 # Weather App
 Weather App is a simple app to see your local forecast
 
+<img width="278" alt="Screenshot 2024-01-03 at 08 14 17" src="https://github.com/carolribeiro2112/Weather-App/assets/65139655/1524a2cc-97d7-499f-926d-b39fab7f2902">
+
+
 ## App purpose
 This app was built during a basic iOS development course to learn a bit of Swift using UIKit to build its UI.
 As this is a beginner app, we have much to improve.
