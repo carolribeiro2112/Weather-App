@@ -26,4 +26,5 @@ Then to see your city forecast you will need to go to the ViewController file an
 ## Improvements to do
 - Separate the ViewController into smaller components.
 - Get user location dynamically using GPS.
+- Add tests to the project
 
