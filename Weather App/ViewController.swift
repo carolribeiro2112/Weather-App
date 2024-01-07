@@ -131,6 +131,7 @@ class ViewController: UIViewController {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.dataSource = self
         collectionView.register(HourlyForecastCollectionViewCell.self, forCellWithReuseIdentifier: HourlyForecastCollectionViewCell.identifier)
+        collectionView.showsHorizontalScrollIndicator = false
         return collectionView
     }()
     
@@ -152,6 +153,7 @@ class ViewController: UIViewController {
         tableView.delegate = self
         tableView.register(DailyForecastTableViewCell.self, forCellReuseIdentifier: DailyForecastTableViewCell.identifier)
         tableView.separatorColor = UIColor.white
+        tableView.showsVerticalScrollIndicator = false
         return tableView
     }()
     
