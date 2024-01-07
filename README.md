@@ -1,7 +1,11 @@
 # Weather App
 Weather App is a simple app to see your local forecast
 
-<img width="278" alt="Screenshot 2024-01-03 at 08 14 17" src="https://github.com/carolribeiro2112/Weather-App/assets/65139655/1524a2cc-97d7-499f-926d-b39fab7f2902">
+<div>
+ <img width="278" alt="Screenshot 2024-01-03 at 08 14 17" src="https://github.com/carolribeiro2112/Weather-App/assets/65139655/1524a2cc-97d7-499f-926d-b39fab7f2902">
+ <img width="278" alt="Screenshot 2024-01-06 at 22 43 22" src="https://github.com/carolribeiro2112/Weather-App/assets/65139655/7f941ff5-6596-4404-bba8-4febdd3b2e6e">
+</div>
+
 
 
 ## App purpose
